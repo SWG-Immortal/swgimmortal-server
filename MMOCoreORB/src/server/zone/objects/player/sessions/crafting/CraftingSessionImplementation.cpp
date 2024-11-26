@@ -1383,11 +1383,12 @@ void CraftingSessionImplementation::createPrototype(int clientCounter, bool crea
 
 		if (createItem) {
 			startCreationTasks(manufactureSchematic->getComplexity() * 2, false);
+			xp = round(xp * 2.0f); // SWG-Immortal: Increased XP for crafting.
 
 		} else {
 			// This is for practicing
 			startCreationTasks(manufactureSchematic->getComplexity() * 2, true);
-			xp = round(xp * 1.05f);
+			xp = round(xp * 5.0f); // SWG-Immortal: Increased XP for crafting practicing.
 		}
 
 		Reference<PlayerManager*> playerManager = crafter->getZoneServer()->getPlayerManager();
