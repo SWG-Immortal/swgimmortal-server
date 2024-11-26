@@ -147,7 +147,7 @@ Core3 = {
 	},
 
 	------TRE config------
-	TrePath = "/home/swgemu/Desktop/SWGEmu",
+	TrePath = "/home/swgemu/tre",
 	TreFiles = {
 		"swgimmortal_patch_3.tre",
 		"swgimmortal_patch_2.tre",
