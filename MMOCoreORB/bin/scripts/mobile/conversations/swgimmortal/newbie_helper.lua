@@ -11,20 +11,54 @@ newbie_helper_first_screen = ConvoScreen:new {
     customDialogText = "Oh, hello there! How can I help you?",
     stopConversation = "false",
     options = { 
-        {"Speederbike (10000 Credits)", "speederbike"}, 
+        {"Can you buff me please?", "buff_screen"}, 
+        {"I need some stuff.", "buy_screen"}, 
         {"I'm fine, thank you!.", "deny_quest"}, 
     }
 }
 newbie_helper_conversation:addScreen(newbie_helper_first_screen);
 
-newbie_helper_accept_quest = ConvoScreen:new {    
-    id = "speederbike",
+newbie_helper_buff_screen = ConvoScreen:new {
+    id = "buff_screen",
     leftDialog = "",
-    customDialogText = "Enjoy that Speederbike!",
+    customDialogText = "Of course!",
+    stopConversation = "false",
+    options = { 
+        {"Starter buffs (5000 Credits)", "starter_buffs"}, 
+        {"I'm fine, thank you!.", "deny_quest"}, 
+    }
+}
+newbie_helper_conversation:addScreen(newbie_helper_buff_screen);
+
+newbie_helper_buy_screen = ConvoScreen:new {
+    id = "buy_screen",
+    leftDialog = "",
+    customDialogText = "Alright, what do you need?",
+    stopConversation = "false",
+    options = { 
+        {"Speederbike (20000 Credits)", "speederbike"}, 
+        {"I'm fine, thank you!.", "deny_quest"}, 
+    }
+}
+newbie_helper_conversation:addScreen(newbie_helper_buy_screen);
+
+newbie_helper_starter_buffs = ConvoScreen:new {    
+    id = "starter_buffs",
+    leftDialog = "",
+    customDialogText = "Take care out there!",
     stopConversation = "true",
     options = { }
 }
-newbie_helper_conversation:addScreen(newbie_helper_accept_quest);
+newbie_helper_conversation:addScreen(newbie_helper_starter_buffs);
+
+newbie_helper_speederbike = ConvoScreen:new {    
+    id = "speederbike",
+    leftDialog = "",
+    customDialogText = "Enjoy that Speeder!",
+    stopConversation = "true",
+    options = { }
+}
+newbie_helper_conversation:addScreen(newbie_helper_speederbike);
 
 newbie_helper_deny_quest = ConvoScreen:new {
     id = "deny_quest",

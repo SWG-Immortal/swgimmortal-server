@@ -37,7 +37,7 @@ function newbie_helper_conversation_handler:getNextConversationScreen(conversati
                 local optionLink = luaLastConversationScreen:getOptionLink(selectedOption)
                 nextConversationScreen = conversation:getScreen(optionLink)
                 -- Get some information about the player.
-                local credits = creature:getCashCredits()
+                local credits = creature:getCashCredits()c
                 local pInventory = creature:getSlottedObject("inventory")
                 local inventory = LuaSceneObject(pInventory)
                 -- Take action when the player makes a purchase.
@@ -48,16 +48,28 @@ function newbie_helper_conversation_handler:getNextConversationScreen(conversati
                     nextConversationScreen = conversation:getScreen("insufficient_space")
                     creature:sendSystemMessage("You do not have enough inventory space")
 
-                elseif (optionLink == "speederbike" and credits < 10000) then
+                -- Not enough credits
+
+                elseif (optionLink == "speederbike" and credits < 20000) then
                     -- Bail if the player doesn’t have enough cash on hand.  
                     -- Plays a chat box message from the NPC as well as a system message.
                       nextConversationScreen = conversation:getScreen("insufficient_funds")
                       creature:sendSystemMessage("You have insufficient funds") 
 
-                elseif (optionLink == "speederbike" and credits >= 10000) then
-                    -- Take 10,000 credits from the player’s cash on hand and give player a speederbike.
-                    creature:subtractCashCredits(10000)
+                elseif (optionLink == "starter_buffs" and credits < 5000) then
+                        nextConversationScreen = conversation:getScreen("insufficient_funds")
+                        creature:sendSystemMessage("You have insufficient funds") 
+
+                -- Enough credits
+
+                elseif (optionLink == "speederbike" and credits >= 20000) then
+                    -- Take credits from the player’s cash on hand and give player a speederbike.
+                    creature:subtractCashCredits(20000)
                     local pItem = giveItem(pInventory, "object/tangible/deed/vehicle_deed/speederbike_deed.iff", -1)
+
+                elseif (optionLink == "starter_buffs" and credits >= 5000) then
+                    creature:subtractCashCredits(5000)
+                    creature:enhanceCharacter()
                     
                 end
             end
