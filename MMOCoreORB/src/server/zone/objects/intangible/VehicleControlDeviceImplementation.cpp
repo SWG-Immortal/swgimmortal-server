@@ -82,10 +82,10 @@ void VehicleControlDeviceImplementation::generateObject(CreatureObject* player) 
 		Reference<CallMountTask*> callMount = new CallMountTask(_this.getReferenceUnsafeStaticCast(), player, "call_mount");
 
 		StringIdChatParameter message("pet/pet_menu", "call_vehicle_delay");
-		message.setDI(15);
+		message.setDI(1); // SWG-Immortal instant call (1s) for vehicles.
 		player->sendSystemMessage(message);
 
-		player->addPendingTask("call_mount", callMount, 15 * 1000);
+		player->addPendingTask("call_mount", callMount, 1 * 1000); // SWG-Immortal instant call (1s) for vehicles.
 
 		if (vehicleControlObserver == nullptr) {
 			vehicleControlObserver = new VehicleControlObserver(_this.getReferenceUnsafeStaticCast());
