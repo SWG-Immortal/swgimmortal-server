@@ -37,7 +37,7 @@ function newbie_helper_conversation_handler:getNextConversationScreen(conversati
                 local optionLink = luaLastConversationScreen:getOptionLink(selectedOption)
                 nextConversationScreen = conversation:getScreen(optionLink)
                 -- Get some information about the player.
-                local credits = creature:getCashCredits()c
+                local credits = creature:getCashCredits()
                 local pInventory = creature:getSlottedObject("inventory")
                 local inventory = LuaSceneObject(pInventory)
                 -- Take action when the player makes a purchase.
