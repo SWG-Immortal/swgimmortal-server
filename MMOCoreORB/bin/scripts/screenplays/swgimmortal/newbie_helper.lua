@@ -37,8 +37,8 @@ function newbie_helper_conversation_handler:getNextConversationScreen(conversati
                 local optionLink = luaLastConversationScreen:getOptionLink(selectedOption)
                 nextConversationScreen = conversation:getScreen(optionLink)
                 -- Further conversation dialogs
-                if (optionLink == "server") then
-                    nextConversationScreen = conversation:getScreen("server")
+                if (optionLink == "speederbike") then
+                    nextConversationScreen = conversation:getScreen("speederbike")
                 -- elseif (optionLink == "speederbike") then
                 end
             end

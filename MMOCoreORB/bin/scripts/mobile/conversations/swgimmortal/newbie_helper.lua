@@ -11,7 +11,7 @@ newbie_helper_first_screen = ConvoScreen:new {
     customDialogText = "Oh, hello there! How can I help you?",
     stopConversation = "false",
     options = { 
-        {"Speederbike – 10,000 Credits", "speederbike"}, 
+        {"Speederbike (10000 Credits)", "speederbike"}, 
         {"I'm fine, thank you!.", "deny_quest"}, 
     }
 }
