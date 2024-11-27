@@ -1,1 +1,0 @@
-includeFile("newbie_helper.lua")
