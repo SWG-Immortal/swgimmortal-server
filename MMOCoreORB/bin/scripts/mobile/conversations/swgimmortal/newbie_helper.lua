@@ -37,6 +37,7 @@ newbie_helper_buy_screen = ConvoScreen:new {
     stopConversation = "false",
     options = { 
         {"Speederbike (20000 Credits)", "speederbike"}, 
+        {"Basic Armor (20000 Credits)", "armor"},
         {"I'm fine, thank you!.", "deny_quest"}, 
     }
 }
@@ -59,6 +60,15 @@ newbie_helper_speederbike = ConvoScreen:new {
     options = { }
 }
 newbie_helper_conversation:addScreen(newbie_helper_speederbike);
+
+newbie_helper_armor = ConvoScreen:new {    
+    id = "armor",
+    leftDialog = "",
+    customDialogText = "There you go! Stay safe out there!",
+    stopConversation = "true",
+    options = { }
+}
+newbie_helper_conversation:addScreen(newbie_helper_armor);
 
 newbie_helper_deny_quest = ConvoScreen:new {
     id = "deny_quest",

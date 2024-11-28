@@ -5,8 +5,8 @@ NewbieHelper = ScreenPlay:new {
 }
 registerScreenPlay("NewbieHelper", true)
 function NewbieHelper:start()     
-    -- Spawn our character into the world, setting pNewbieHelper a pointer variable we can use to check or change his state.       
-    local pNewbieHelper = spawnMobile("tatooine", "newbie_helper", 1, 3529, 5, -4811, 35, 0 )
+    spawnMobile("tatooine", "newbie_helper", 1, 3529, 5, -4811, 35, 0 ) -- Mos Eisley Starport
+    spawnMobile("tatooine", "newbie_helper", 1, 3457, 4, -4826, 35, 0 ) -- Mos Eisley Cantina
 end
 newbie_helper_conversation_handler = Object:new {
     tstring = "myconversation" 
@@ -60,16 +60,33 @@ function newbie_helper_conversation_handler:getNextConversationScreen(conversati
                         nextConversationScreen = conversation:getScreen("insufficient_funds")
                         creature:sendSystemMessage("You have insufficient funds") 
 
+                elseif (optionLink == "armor" and credits < 20000) then
+                        nextConversationScreen = conversation:getScreen("insufficient_funds")
+                        creature:sendSystemMessage("You have insufficient funds") 
+
                 -- Enough credits
 
                 elseif (optionLink == "speederbike" and credits >= 20000) then
                     -- Take credits from the player’s cash on hand and give player a speederbike.
                     creature:subtractCashCredits(20000)
-                    local pItem = giveItem(pInventory, "object/tangible/deed/vehicle_deed/speederbike_deed.iff", -1)
+                    giveItem(pInventory, "object/tangible/deed/vehicle_deed/speederbike_deed.iff", -1)
 
                 elseif (optionLink == "starter_buffs" and credits >= 5000) then
                     creature:subtractCashCredits(5000)
                     creature:enhanceCharacter()
+
+                elseif (optionLink == "armor" and credits >= 20000) then
+                    creature:subtractCashCredits(20000)
+                    giveItem(pInventory, "object/tangible/wearables/armor/armor_padded_s01_belt.iff", -1)
+                    giveItem(pInventory, "object/tangible/wearables/armor/armor_padded_s01_bicep_l.iff", -1)
+                    giveItem(pInventory, "object/tangible/wearables/armor/armor_padded_s01_bicep_r.iff", -1)
+                    giveItem(pInventory, "object/tangible/wearables/armor/armor_padded_s01_boots.iff", -1)
+                    giveItem(pInventory, "object/tangible/wearables/armor/armor_padded_s01_bracer_L.iff", -1)
+                    giveItem(pInventory, "object/tangible/wearables/armor/armor_padded_s01_bracer_r.iff", -1)
+                    giveItem(pInventory, "object/tangible/wearables/armor/armor_padded_s01_chest_plate.iff", -1)
+                    giveItem(pInventory, "object/tangible/wearables/armor/armor_padded_s01_gloves.iff", -1)
+                    giveItem(pInventory, "object/tangible/wearables/armor/armor_padded_s01_helmet.iff", -1)
+                    giveItem(pInventory, "object/tangible/wearables/armor/armor_padded_s01_leggings.iff", -1)
                     
                 end
             end
