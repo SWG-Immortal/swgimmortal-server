@@ -910,7 +910,7 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 		groupSuffix = " lair.";
 	}
 
-	VectorMap<any, any>* mobiles = lairTemplateObject->getMobiles();
+	VectorMap<unknown, unknown>* mobiles = lairTemplateObject->getMobiles();
 
 	String mobileName = "mysterious";
 
