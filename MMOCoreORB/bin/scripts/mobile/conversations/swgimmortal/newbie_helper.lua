@@ -37,8 +37,15 @@ newbie_helper_buy_screen = ConvoScreen:new {
     stopConversation = "false",
     options = { 
         {"Speederbike (20000 Credits)", "speederbike"}, 
-        {"Basic Armor (20000 Credits)", "armor"},
-        {"I'm fine, thank you!.", "deny_quest"}, 
+        {"Starter Armor (20000 Credits)", "armor"},
+        {"Carbineer Weapon (50000 Credits)", "carbineer"},
+        {"Fencer Weapon (50000 Credits)", "fencer"},
+        {"Pikeman Weapon (50000 Credits)", "pikeman"},
+        {"Pistoleer Weapon (50000 Credits)", "pistoleer"},
+        {"Rifleman Weapon (50000 Credits)", "rifleman"},
+        {"Swordsman Weapon (50000 Credits)", "swordsman"},
+        {"Teras Kasi Weapon (50000 Credits)", "teraskasi"},
+        {"I'm fine, thank you!.", "deny_quest"}
     }
 }
 newbie_helper_conversation:addScreen(newbie_helper_buy_screen);
@@ -69,6 +76,69 @@ newbie_helper_armor = ConvoScreen:new {
     options = { }
 }
 newbie_helper_conversation:addScreen(newbie_helper_armor);
+
+newbie_helper_carbineer = ConvoScreen:new {    
+    id = "carbineer",
+    leftDialog = "",
+    customDialogText = "Happy hunting!",
+    stopConversation = "true",
+    options = { }
+}
+newbie_helper_conversation:addScreen(newbie_helper_carbineer);
+
+newbie_helper_fencer = ConvoScreen:new {    
+    id = "fencer",
+    leftDialog = "",
+    customDialogText = "Happy hunting!",
+    stopConversation = "true",
+    options = { }
+}
+newbie_helper_conversation:addScreen(newbie_helper_fencer);
+
+newbie_helper_pikeman = ConvoScreen:new {    
+    id = "pikeman",
+    leftDialog = "",
+    customDialogText = "Happy hunting!",
+    stopConversation = "true",
+    options = { }
+}
+newbie_helper_conversation:addScreen(newbie_helper_pikeman);
+
+newbie_helper_pistoleer = ConvoScreen:new {    
+    id = "pistoleer",
+    leftDialog = "",
+    customDialogText = "Happy hunting!",
+    stopConversation = "true",
+    options = { }
+}
+newbie_helper_conversation:addScreen(newbie_helper_pistoleer);
+
+newbie_helper_rifleman = ConvoScreen:new {    
+    id = "rifleman",
+    leftDialog = "",
+    customDialogText = "Happy hunting!",
+    stopConversation = "true",
+    options = { }
+}
+newbie_helper_conversation:addScreen(newbie_helper_rifleman);
+
+newbie_helper_swordsman = ConvoScreen:new {    
+    id = "swordsman",
+    leftDialog = "",
+    customDialogText = "Happy hunting!",
+    stopConversation = "true",
+    options = { }
+}
+newbie_helper_conversation:addScreen(newbie_helper_swordsman);
+
+newbie_helper_teraskasi = ConvoScreen:new {    
+    id = "teraskasi",
+    leftDialog = "",
+    customDialogText = "Happy hunting!",
+    stopConversation = "true",
+    options = { }
+}
+newbie_helper_conversation:addScreen(newbie_helper_teraskasi);
 
 newbie_helper_deny_quest = ConvoScreen:new {
     id = "deny_quest",
