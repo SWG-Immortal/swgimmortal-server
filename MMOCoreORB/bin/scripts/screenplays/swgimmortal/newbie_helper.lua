@@ -85,7 +85,7 @@ function newbie_helper_conversation_handler:getNextConversationScreen(conversati
                     giveItem(pInventory, "object/tangible/wearables/armor/padded/armor_padded_s01_bracer_r.iff", -1)
                     giveItem(pInventory, "object/tangible/wearables/armor/padded/armor_padded_s01_chest_plate.iff", -1)
                     giveItem(pInventory, "object/tangible/wearables/armor/padded/armor_padded_s01_gloves.iff", -1)
-                    giveItem(pInventory, "object/tangible/wearables/armor/padded/armor_padded_s01_helmet.iff", -1)
+                    generateCraftedItem(pInventory, "object/draft_schematic/clothing/clothing_armor_padded_helmet.iff", 1, 150)
                     giveItem(pInventory, "object/tangible/wearables/armor/padded/armor_padded_s01_leggings.iff", -1)
                     
                 end
