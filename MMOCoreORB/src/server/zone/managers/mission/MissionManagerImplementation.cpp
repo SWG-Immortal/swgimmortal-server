@@ -902,14 +902,15 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	// SWG-Immortal: Display detailed mission title with Combat Level and Lair Type etc.
 	String groupSuffix;
 
-	if (lairTemplateObject->getMobType() == LairTemplate::NPC)
+	if (lairTemplateObject->getMobType() == LairTemplate::NPC) {
 		missionType = "_npc";
 		groupSuffix = " camp.";
-	else
+	} else {
 		missionType = "_creature";
 		groupSuffix = " lair.";
+	}
 
-	VectorMap<String, int>* mobiles = lairTemplateObject->getMobiles();
+	mobiles = lairTemplateObject->getMobiles();
 
 	String mobileName = "mysterious";
 
