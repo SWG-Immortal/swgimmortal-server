@@ -265,7 +265,8 @@ void MissionManagerImplementation::handleMissionAccept(MissionTerminal* missionT
 	}
 
 	//Limit to two missions (only one of them can be a bounty mission)
-	if (missionCount >= 2 || (hasBountyMission && mission->getTypeCRC() == MissionTypes::BOUNTY)) {
+	// SWG-Immortal: Mission Limit 5!
+	if (missionCount >= 5 || (hasBountyMission && mission->getTypeCRC() == MissionTypes::BOUNTY)) {
 		StringIdChatParameter stringId("mission/mission_generic", "too_many_missions");
 		player->sendSystemMessage(stringId);
 		return;
@@ -575,11 +576,14 @@ void MissionManagerImplementation::randomizeGeneralTerminalMissions(CreatureObje
 		}
 
 		if (slicer) {
-			mission->setRewardCredits(mission->getRewardCredits() * 1.5);
+			// SWG-Immortal - More credits payout for general missions overall.
+			mission->setRewardCredits(mission->getRewardCredits() * 2.5);
 		}
 
 		float cityBonus = 1.f + player->getSkillMod("private_spec_missions") / 100.f;
-		mission->setRewardCredits(mission->getRewardCredits() * cityBonus);
+
+		// SWG-Immortal - More credits payout for general missions overall.
+		mission->setRewardCredits(mission->getRewardCredits() * cityBonus* 2);
 
 		mission->setRefreshCounter(counter, true);
 	}
@@ -604,11 +608,14 @@ void MissionManagerImplementation::randomizeArtisanTerminalMissions(CreatureObje
 		}
 
 		if (slicer) {
-			mission->setRewardCredits(mission->getRewardCredits() * 1.5);
+			// SWG-Immortal - More credits payout for non combat missions overall.
+			mission->setRewardCredits(mission->getRewardCredits() * 4.5);
 		}
 
 		float cityBonus = 1.f + player->getSkillMod("private_spec_missions") / 100.f;
-		mission->setRewardCredits(mission->getRewardCredits() * cityBonus);
+
+		// SWG-Immortal - More credits payout for non combat missions overall.
+		mission->setRewardCredits(mission->getRewardCredits() * cityBonus * 4.0);
 
 		mission->setRefreshCounter(counter, true);
 	}
@@ -633,11 +640,14 @@ void MissionManagerImplementation::randomizeEntertainerTerminalMissions(Creature
 		}
 
 		if (slicer) {
-			mission->setRewardCredits(mission->getRewardCredits() * 1.5);
+			// SWG-Immortal - More credits payout for non combat missions overall.
+			mission->setRewardCredits(mission->getRewardCredits() * 4.5);
 		}
 
 		float cityBonus = 1.f + player->getSkillMod("private_spec_missions") / 100.f;
-		mission->setRewardCredits(mission->getRewardCredits() * cityBonus);
+
+		// SWG-Immortal - More credits payout for non combat missions overall.
+		mission->setRewardCredits(mission->getRewardCredits() * cityBonus * 4.0);
 
 		mission->setRefreshCounter(counter, true);
 	}
@@ -662,11 +672,14 @@ void MissionManagerImplementation::randomizeScoutTerminalMissions(CreatureObject
 		}
 
 		if (slicer) {
-			mission->setRewardCredits(mission->getRewardCredits() * 1.5);
+			// SWG-Immortal - More credits payout for non combat missions overall.
+			mission->setRewardCredits(mission->getRewardCredits() * 4.5);
 		}
 
 		float cityBonus = 1.f + player->getSkillMod("private_spec_missions") / 100.f;
-		mission->setRewardCredits(mission->getRewardCredits() * cityBonus);
+
+		// SWG-Immortal - More credits payout for non combat missions overall.
+		mission->setRewardCredits(mission->getRewardCredits() * cityBonus * 4.0);
 
 		mission->setRefreshCounter(counter, true);
 	}
@@ -860,7 +873,8 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	mission->setTargetTemplate(templateObject);
 	mission->setTargetOptionalTemplate(lairTemplate);
 
-	int reward = destroyMissionBaseReward + destroyMissionDifficultyRewardFactor * difficultyLevel;
+	// SWG-Immortal - More credits payout for combat missions overall.
+	int reward = destroyMissionBaseReward + destroyMissionDifficultyRewardFactor * difficultyLevel * 2;
 	reward += System::random(destroyMissionRandomReward) + System::random(destroyMissionDifficultyRandomReward * difficultyLevel);
 	mission->setRewardCredits(reward);
 
@@ -884,12 +898,26 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	else
 		messageDifficulty = "_hard";
 
+	// mission->setMissionTitle("mission/mission_destroy_neutral" + messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "t");
+	// SWG-Immortal: Display detailed mission title with Combat Level and Lair Type etc.
+	String groupSuffix;
+
 	if (lairTemplateObject->getMobType() == LairTemplate::NPC)
 		missionType = "_npc";
+		groupSuffix = " camp.";
 	else
 		missionType = "_creature";
+		groupSuffix = " lair.";
 
-	mission->setMissionTitle("mission/mission_destroy_neutral" + messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "t");
+	VectorMap<String, int>* mobiles = lairTemplateObject->getMobiles();
+
+	String mobileName = "mysterious";
+
+	if (mobiles->size() > 0) {
+		mobileName = mobiles->elementAt(0).getKey();
+	}
+
+	mission->setMissionTitle("CL" + String::valueOf(diffDisplay), " Destroy the " + mobileName.replaceAll("_", " ") + groupSuffix);
 	mission->setMissionDescription("mission/mission_destroy_neutral" +  messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "d");
 
 	switch (faction) {
