@@ -98,14 +98,14 @@ object_tangible_wearables_armor_padded_armor_padded_s01_leggings = object_tangib
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
 
-	kinetic = 15,
-	energy = 15,
-	electricity = 15,
-	stun = 15,
-	blast = 15,
-	heat = 15,
-	cold = 15,
-	acid = 15,
+	kinetic = 35,
+	energy = 35,
+	electricity = 35,
+	stun = 35,
+	blast = 35,
+	heat = 35,
+	cold = 35,
+	acid = 35,
 	lightSaber = 0,
 
 	numberExperimentalProperties = {1, 1, 1, 2, 2, 2, 2, 2, 2, 1, 1, 2, 1},
