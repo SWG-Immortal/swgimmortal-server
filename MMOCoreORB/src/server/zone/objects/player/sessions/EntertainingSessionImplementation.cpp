@@ -658,8 +658,9 @@ void EntertainingSessionImplementation::doFlourish(int flourishNumber, bool gran
 	if (entertainer->getHAM(CreatureAttribute::ACTION) <= actionDrain) {
 		entertainer->sendSystemMessage("@performance:flourish_too_tired");
 	} else {
-		if (actionDrain > 0)
-			entertainer->inflictDamage(entertainer, CreatureAttribute::ACTION, actionDrain, false, true);
+		// SWG-Immortal Entertainers can flourish without draining action.
+		/*if (actionDrain > 0)
+			entertainer->inflictDamage(entertainer, CreatureAttribute::ACTION, actionDrain, false, true);*/
 
 		if (isDancing()) {
 			StringBuffer msg;
