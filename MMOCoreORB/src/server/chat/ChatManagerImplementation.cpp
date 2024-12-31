@@ -981,7 +981,7 @@ void ChatManagerImplementation::broadcastGalaxy(const String& message, const Str
 }
 
 void ChatManagerImplementation::broadcastGalaxy(CreatureObject* creature, const String& message) {
-	String firstName = "SKYNET";
+	String firstName = "SWG-Immortal"; // Changed to SWGImmortal.
 
 	StringBuffer fullMessage;
 
