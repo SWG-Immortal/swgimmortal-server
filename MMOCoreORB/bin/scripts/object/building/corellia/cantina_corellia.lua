@@ -45,7 +45,8 @@ object_building_corellia_cantina_corellia = object_building_corellia_shared_cant
 	skillMods = {
 		{"private_med_wound_mind", 20},
 		{"private_buff_mind", 100},
-		{"private_med_battle_fatigue", 5}
+		{"private_med_battle_fatigue", 5},
+		{"private_medical_rating", 20}, -- SWG-Immortal: Possible to heal wounds but heavily decreased instead of player cantinas.
 	},
 	planetMapCategory = "cantina"
 }

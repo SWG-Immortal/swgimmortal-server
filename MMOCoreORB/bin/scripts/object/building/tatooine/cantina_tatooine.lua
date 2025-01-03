@@ -45,7 +45,8 @@ object_building_tatooine_cantina_tatooine = object_building_tatooine_shared_cant
 		{"private_med_wound_mind", 20},
 		{"private_buff_mind", 100},
 		{"private_med_battle_fatigue", 5},
-		{"private_safe_logout", 1}
+		{"private_safe_logout", 1},
+		{"private_medical_rating", 20}, -- SWG-Immortal: Possible to heal wounds but heavily decreased instead of player cantinas.
 	},
 	planetMapCategory = "cantina"
 }
