@@ -36,7 +36,6 @@ newbie_helper_buy_screen = ConvoScreen:new {
     customDialogText = "Alright, what do you need?",
     stopConversation = "false",
     options = { 
-        {"Speederbike (20000 Credits)", "speederbike"}, 
         {"Starter Armor (20000 Credits)", "armor"},
         {"I'm fine, thank you!.", "deny_quest"}
     }
@@ -51,15 +50,6 @@ newbie_helper_starter_buffs = ConvoScreen:new {
     options = { }
 }
 newbie_helper_conversation:addScreen(newbie_helper_starter_buffs);
-
-newbie_helper_speederbike = ConvoScreen:new {    
-    id = "speederbike",
-    leftDialog = "",
-    customDialogText = "Enjoy that Speeder!",
-    stopConversation = "true",
-    options = { }
-}
-newbie_helper_conversation:addScreen(newbie_helper_speederbike);
 
 newbie_helper_armor = ConvoScreen:new {    
     id = "armor",

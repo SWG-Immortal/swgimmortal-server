@@ -48,13 +48,6 @@ function newbie_helper_conversation_handler:getNextConversationScreen(conversati
                     nextConversationScreen = conversation:getScreen("insufficient_space")
                     creature:sendSystemMessage("You do not have enough inventory space")
 
-                elseif (optionLink == "speederbike" and credits < 20000) then
-                    nextConversationScreen = conversation:getScreen("insufficient_funds")
-                    creature:sendSystemMessage("You have insufficient funds") 
-                elseif (optionLink == "speederbike" and credits >= 20000) then
-                    creature:subtractCashCredits(20000)
-                    giveItem(pInventory, "object/tangible/deed/vehicle_deed/speederbike_deed.iff", -1)
-
                 elseif (optionLink == "starter_buffs" and credits < 5000) then
                     nextConversationScreen = conversation:getScreen("insufficient_funds")
                     creature:sendSystemMessage("You have insufficient funds") 
