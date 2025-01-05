@@ -2130,7 +2130,7 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 				if (xpType != "jedi_general")
 					combatXp += xpAmount;
 				else
-					xpAmount *= 0.8f; // SWG-Immortal: Increase Jedi XP from 20% to 80%.
+					xpAmount *= 0.5f; // SWG-Immortal: Increase Jedi XP from 20% to 50%.
 
 				if (xpType == "dotDMG") { // Prevents XP generated from DoTs from applying to the equiped weapon, but still counts towards combat XP
 					continue;
