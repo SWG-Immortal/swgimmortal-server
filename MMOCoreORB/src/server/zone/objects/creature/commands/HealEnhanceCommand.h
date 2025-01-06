@@ -234,6 +234,9 @@ public:
 		if (amount <= 0)
 			return;
 
+		// SWG-Immortal: Increase XP.
+		amount *= 5;
+
 		PlayerManager* playerManager = server->getZoneServer()->getPlayerManager();
 		playerManager->awardExperience(player, type, amount, true);
 	}
