@@ -555,7 +555,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 
 	// SWG-Immortal: Broadcast galaxy wide message about new character creation.
 	StringBuffer newPlayerMessage;
-	newPlayerMessage " \\#aa853c " << firstName << "\\#2196c4 just joined the galaxy!";
+	newPlayerMessage << "\\#aa853c " << firstName << "\\#2196c4 just joined the galaxy!";
 	chatManager->broadcastGalaxy(nullptr, newPlayerMessage.toString());
 
 	// Schedule Task to send out JTL Recruitment Mail
