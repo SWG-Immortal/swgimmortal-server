@@ -1069,7 +1069,7 @@ void EntertainingSessionImplementation::awardEntertainerExperience() {
 
 			xpAmount = ceil(xpAmount * totalBonus);
 
-			xpAmount = ceil(xpAmount * 4); // SWG-Immortal 4x Entertainer XP
+			xpAmount = ceil(xpAmount * 7); // SWG-Immortal 4x Entertainer XP
 
 			if (playerManager != nullptr)
 				playerManager->awardExperience(player, xptype, xpAmount, true);
@@ -1082,7 +1082,7 @@ void EntertainingSessionImplementation::awardEntertainerExperience() {
 
 		if (healingXp > 0) {
 			String healxptype("entertainer_healing");
-			healingXp = ceil(healingXp * 4); // SWG-Immortal 4x Entertainer XP
+			healingXp = ceil(healingXp * 7); // SWG-Immortal 4x Entertainer XP
 
 			if (playerManager != nullptr)
 				playerManager->awardExperience(player, healxptype, healingXp, true);

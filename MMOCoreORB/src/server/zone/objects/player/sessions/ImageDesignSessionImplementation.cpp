@@ -311,6 +311,8 @@ void ImageDesignSessionImplementation::updateImageDesign(CreatureObject* updater
 				xpGranted /= 2;
 			}
 
+			// SWG-Immortal: Increase Image Designing Experience gained.
+			xpGranted *= 7;
 			playerManager->awardExperience(strongReferenceDesigner, "imagedesigner", xpGranted, true);
 		}
 
