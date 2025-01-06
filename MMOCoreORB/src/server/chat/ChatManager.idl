@@ -460,6 +460,13 @@ class ChatManager extends ManagedService implements Logger {
 	}
 
 	/*
+	 * Returns the galaxy chat room
+	 */
+	public ChatRoom getGalaxyRoom() {
+		return galaxyRoom;
+	}
+
+	/*
 	 * Returns the pvp broadcast chat room
 	 */
 	public ChatRoom getPvpBroadcastRoom() {
