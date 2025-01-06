@@ -553,6 +553,9 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	// Welcome Mail
 	chatManager->sendMail("system", "@newbie_tutorial/newbie_mail:welcome_subject", "@newbie_tutorial/newbie_mail:welcome_body", playerCreature->getFirstName());
 
+	// SWG-Immortal: Broadcast galaxy wide message about new character creation.
+	chatManager->broadcastGalaxy(nullptr, firstName << " just joined the galaxy!");
+
 	// Schedule Task to send out JTL Recruitment Mail
 	SendJtlRecruitment* jtlMailTask = new SendJtlRecruitment(playerCreature);
 
