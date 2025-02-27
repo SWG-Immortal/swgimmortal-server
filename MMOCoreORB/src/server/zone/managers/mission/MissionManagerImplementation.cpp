@@ -577,13 +577,13 @@ void MissionManagerImplementation::randomizeGeneralTerminalMissions(CreatureObje
 
 		if (slicer) {
 			// SWG-Immortal - More credits payout for general missions overall.
-			mission->setRewardCredits(mission->getRewardCredits() * 1.2);
+			mission->setRewardCredits(mission->getRewardCredits() * 2.0);
 		}
 
 		float cityBonus = 1.f + player->getSkillMod("private_spec_missions") / 100.f;
 
 		// SWG-Immortal - More credits payout for general missions overall.
-		mission->setRewardCredits(mission->getRewardCredits() * cityBonus* 1.3);
+		mission->setRewardCredits(mission->getRewardCredits() * cityBonus* 1.8);
 
 		mission->setRefreshCounter(counter, true);
 	}
@@ -874,7 +874,7 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	mission->setTargetOptionalTemplate(lairTemplate);
 
 	// SWG-Immortal - More credits payout for combat missions overall.
-	int reward = destroyMissionBaseReward + destroyMissionDifficultyRewardFactor * difficultyLevel * 1.1;
+	int reward = destroyMissionBaseReward + destroyMissionDifficultyRewardFactor * difficultyLevel * 1.5;
 	reward += System::random(destroyMissionRandomReward) + System::random(destroyMissionDifficultyRandomReward * difficultyLevel);
 	mission->setRewardCredits(reward);
 
