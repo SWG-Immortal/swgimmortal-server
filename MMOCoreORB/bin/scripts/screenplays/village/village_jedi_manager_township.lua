@@ -37,6 +37,7 @@ function VillageJediManagerTownship.setCurrentPhaseInit()
 		end
 
 		if (eventTimeLeft < 0) then
+			VillageJediManagerTownship:switchToNextPhase(true) -- SWG-Immortal: Fix for servers that were already running the village prior to the change in schedule handling
 			return
 		end
 
